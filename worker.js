@@ -68,6 +68,19 @@ if (url.pathname === "/api/signups/status" && request.method === "POST") {
     );
   }
 }
+    // Delete all customer signups
+if (url.pathname === "/api/signups/delete-all" && request.method === "POST") {
+  try {
+    await env.DB.prepare("DELETE FROM signups").run();
+
+    return Response.json({ success: true });
+  } catch (error) {
+    return Response.json(
+      { success: false, error: "Unable to delete signups." },
+      { status: 500 }
+    );
+  }
+}
     // Serve the existing website
     return env.ASSETS.fetch(request);
   }
