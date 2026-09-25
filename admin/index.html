@@ -38,7 +38,7 @@
 <script>
 let phone=localStorage.getItem('ae_phone')||'+971 50 123 4567';
 let support=localStorage.getItem('ae_support')||'+971 50 123 4567';
-let leads=JSON.parse(localStorage.getItem('ae_leads')||'[]');
+let leads=[];
 let banners=JSON.parse(localStorage.getItem('ae_banners')||'[]');
 let sites=JSON.parse(localStorage.getItem('ae_sites')||'[]');
 function tab(id,b){document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
