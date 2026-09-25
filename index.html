@@ -3,206 +3,229 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>Airexchange.org | Customer Services</title>
 
 <style>
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
   font-family:Inter,Arial,sans-serif;
-  background:#f5f8fc;
-  color:#172033;
+  background:#f4f7fb;
+  color:#142033;
 }
-
 .top{
   position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 15%,#1cc8d044,transparent 28%),
-    radial-gradient(circle at 10% 90%,#38bdf844,transparent 30%),
-    linear-gradient(135deg,#071b35,#0b355b 55%,#087f8c);
   color:#fff;
-  padding:28px 18px 75px;
+  padding:28px 18px 90px;
   text-align:center;
+  background:
+    radial-gradient(circle at 85% 15%,#22d3ee55,transparent 28%),
+    radial-gradient(circle at 10% 90%,#38bdf855,transparent 30%),
+    linear-gradient(135deg,#06172f,#0b3d68 55%,#078b91);
 }
-
+.logo{
+  position:relative;
+  z-index:2;
+  font-size:35px;
+  font-weight:950;
+  letter-spacing:-1px;
+}
+.logo span{color:#fbbf67}
+.tagline{
+  position:relative;
+  z-index:2;
+  max-width:700px;
+  margin:10px auto 0;
+  color:#dffaff;
+}
 .top:after{
   content:"";
   position:absolute;
   left:-5%;
   right:-5%;
-  bottom:-55px;
-  height:110px;
-  background:#f5f8fc;
+  bottom:-65px;
+  height:120px;
+  background:#f4f7fb;
   border-radius:50% 50% 0 0;
 }
-
-.logo{
-  position:relative;
-  z-index:2;
-  font-size:34px;
-  font-weight:950;
-  letter-spacing:-1px;
-}
-
-.logo span{color:#67e8f9}
-
-.tagline{
-  position:relative;
-  z-index:2;
-  margin:10px auto 0;
-  max-width:650px;
-  font-size:16px;
-  color:#d8f5fa;
-}
-
 .wrap{
   position:relative;
   z-index:3;
-  max-width:1080px;
-  margin:-35px auto 0;
+  max-width:1100px;
+  margin:-40px auto 0;
   padding:0 18px 50px;
 }
-
 .nav{
   display:flex;
-  gap:10px;
   justify-content:center;
+  gap:10px;
   flex-wrap:wrap;
   margin-bottom:22px;
 }
-
 .nav a{
+  background:#fff;
+  color:#24364d;
   padding:11px 18px;
   border-radius:999px;
   text-decoration:none;
-  background:#fff;
-  color:#24364d;
   font-weight:800;
   border:1px solid #e1e8f0;
-  box-shadow:0 5px 18px #10233f12;
-  transition:.2s;
+  box-shadow:0 6px 20px #10233f12;
 }
-
-.nav a:hover{
-  transform:translateY(-2px);
-  border-color:#8dddea;
-}
-
 .card{
   background:#fff;
+  border:1px solid #e6edf4;
   border-radius:22px;
-  box-shadow:0 12px 35px #10233f12;
-  margin-bottom:22px;
   padding:28px;
-  border:1px solid #e8eef5;
+  margin-bottom:22px;
+  box-shadow:0 12px 35px #10233f12;
 }
-
 .hero{
   text-align:center;
-  padding:38px 25px;
+  padding:42px 25px;
 }
-
 .hero h1{
   margin:0;
-  font-size:38px;
-  line-height:1.1;
-  letter-spacing:-1.2px;
+  font-size:42px;
+  line-height:1.08;
+  letter-spacing:-1.5px;
 }
-
-.hero h2{
-  margin:0 0 8px;
-  font-size:27px;
-}
-
 .hero p{
-  color:#64748b;
-  font-size:16px;
+  color:#66758a;
+  font-size:17px;
 }
-
+.orange{
+  color:#e99525;
+}
 .phone{
-  font-size:28px;
   color:#0877c9;
+  font-size:28px;
   font-weight:950;
   margin:18px 0;
 }
-
 .btn{
   display:inline-block;
-  padding:14px 22px;
+  padding:14px 23px;
   border-radius:12px;
   text-decoration:none;
   font-weight:850;
   transition:.2s;
 }
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
+.btn:hover{transform:translateY(-2px)}
 .wa{
   background:#16a34a;
   color:#fff;
-  box-shadow:0 8px 20px #16a34a30;
+  box-shadow:0 8px 22px #16a34a30;
 }
-
 .support{
   background:#6d28d9;
   color:#fff;
-  box-shadow:0 8px 20px #6d28d930;
 }
-
+.banner-slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  margin-bottom:22px;
+  box-shadow:0 15px 40px #10233f18;
+}
+.slide{
+  display:none;
+  min-height:270px;
+  padding:55px 35px;
+  color:#fff;
+  text-align:center;
+  background:
+    radial-gradient(circle at 90% 20%,#fbbf6740,transparent 30%),
+    linear-gradient(120deg,#092b50,#087f8c);
+}
+.slide.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  animation:fade .8s ease;
+}
+.slide:nth-child(2){
+  background:
+    radial-gradient(circle at 10% 20%,#fbbf6740,transparent 30%),
+    linear-gradient(120deg,#102f55,#155e75);
+}
+.slide:nth-child(3){
+  background:
+    radial-gradient(circle at 85% 80%,#fbbf6740,transparent 30%),
+    linear-gradient(120deg,#173b61,#0f766e);
+}
+.slide-content{max-width:750px}
+.slide h2{
+  margin:0 0 12px;
+  font-size:38px;
+  line-height:1.1;
+}
+.slide h2 span{color:#fbbf67}
+.slide p{
+  margin:0;
+  font-size:17px;
+  color:#e7faff;
+}
+.dots{
+  position:absolute;
+  bottom:15px;
+  left:0;
+  right:0;
+  text-align:center;
+}
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin:0 4px;
+  border-radius:50%;
+  background:#ffffff77;
+}
+.dot.active{background:#fbbf67}
+@keyframes fade{
+  from{opacity:.2;transform:scale(1.01)}
+  to{opacity:1;transform:scale(1)}
+}
+.trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:22px;
+}
+.trust-item{
+  background:#fff;
+  border:1px solid #e7edf4;
+  border-radius:18px;
+  padding:23px 15px;
+  text-align:center;
+  box-shadow:0 8px 25px #10233f0d;
+}
+.icon{
+  font-size:28px;
+  margin-bottom:8px;
+}
+.trust-item b{display:block;margin-bottom:6px}
+.trust-item span{
+  color:#718096;
+  font-size:13px;
+}
 .section-title{
   text-align:center;
   margin-bottom:22px;
 }
-
 .section-title h2{
   margin:0 0 7px;
-  font-size:28px;
+  font-size:29px;
 }
-
 .section-title p{
   margin:0;
   color:#718096;
 }
-
-.poster{
-  overflow:hidden;
-  padding:0;
-}
-
-.poster img{
-  width:100%;
-  display:block;
-  max-height:620px;
-  object-fit:cover;
-}
-
-.poster div{
-  padding:16px 20px;
-  font-weight:850;
-  font-size:16px;
-}
-
 .signup{
-  background:
-    linear-gradient(135deg,#ffffff,#f1fbff);
+  background:linear-gradient(135deg,#fff,#f1fbff);
 }
-
-.signup h2{
-  margin-top:0;
-  font-size:28px;
-}
-
-.signup p{
-  color:#64748b;
-}
-
 .signup input{
   width:100%;
   padding:15px;
@@ -211,54 +234,34 @@ body{
   border-radius:12px;
   font:inherit;
   outline:none;
-  transition:.2s;
 }
-
 .signup input:focus{
   border-color:#159bd0;
   box-shadow:0 0 0 4px #159bd015;
 }
-
 .submit{
   width:100%;
   border:0;
   background:linear-gradient(135deg,#0877c9,#0b9ca8);
   color:#fff;
-  padding:15px 18px;
+  padding:15px;
   border-radius:12px;
   font-weight:900;
   font-size:16px;
   cursor:pointer;
-  box-shadow:0 8px 20px #0877c930;
 }
-
-.submit:hover{
-  transform:translateY(-1px);
-}
-
 .sites{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:14px;
 }
-
 .site{
-  border:1px solid #e2e8f0;
   padding:20px;
   border-radius:16px;
+  border:1px solid #e2e8f0;
   background:#fbfdff;
-  transition:.2s;
 }
-
-.site:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px #10233f10;
-}
-
-.site b{
-  font-size:17px;
-}
-
+.site b{font-size:17px}
 .site a{
   display:inline-block;
   margin-top:10px;
@@ -266,52 +269,44 @@ body{
   font-weight:850;
   text-decoration:none;
 }
-
 .empty{
-  color:#718096;
-  text-align:center;
   grid-column:1/-1;
+  text-align:center;
+  color:#718096;
   padding:15px;
 }
-
-.trust{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-  margin-bottom:22px;
+.responsible{
+  background:linear-gradient(135deg,#fffaf2,#fff);
+  border:1px solid #f5dfb9;
 }
-
-.trust-item{
-  background:#fff;
-  border:1px solid #e8eef5;
-  border-radius:18px;
-  padding:22px 15px;
-  text-align:center;
-  box-shadow:0 8px 25px #10233f0d;
+.responsible h2{color:#b86d10}
+.rules{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:18px;
 }
-
-.trust-icon{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.trust-item b{
-  display:block;
-  margin-bottom:5px;
-}
-
-.trust-item span{
-  color:#718096;
+.rule{
+  padding:9px 15px;
+  border-radius:999px;
+  background:#fff3d9;
+  color:#8a5a13;
+  font-weight:800;
   font-size:13px;
 }
-
+.legal{
+  text-align:center;
+  color:#69788b;
+  font-size:12px;
+  line-height:1.7;
+}
 .footer{
   text-align:center;
   color:#718096;
   font-size:13px;
-  padding:10px 0 25px;
+  padding:5px 0 25px;
 }
-
 .float-wa{
   position:fixed;
   right:20px;
@@ -326,39 +321,21 @@ body{
   align-items:center;
   justify-content:center;
   text-decoration:none;
-  font-size:27px;
+  font-size:25px;
   box-shadow:0 10px 25px #16a34a55;
 }
-
 @media(max-width:700px){
   .logo{font-size:29px}
   .hero h1{font-size:31px}
-  .hero h2{font-size:24px}
-  .phone{font-size:24px}
-  .card{padding:22px}
-  .sites{grid-template-columns:1fr}
+  .slide{min-height:250px;padding:45px 22px}
+  .slide h2{font-size:29px}
   .trust{grid-template-columns:1fr}
+  .sites{grid-template-columns:1fr}
+  .card{padding:22px}
 }
-
 @media(max-width:430px){
-  .nav a{
-    width:100%;
-    text-align:center;
-  }
-
-  .top{
-    padding-bottom:65px;
-  }
-
-  .wrap{
-    padding-left:12px;
-    padding-right:12px;
-  }
-
-  .float-wa{
-    right:15px;
-    bottom:15px;
-  }
+  .nav a{width:100%;text-align:center}
+  .float-wa{right:15px;bottom:15px}
 }
 </style>
 </head>
@@ -367,9 +344,7 @@ body{
 
 <header class="top">
   <div class="logo">AIR<span>EXCHANGE</span>.org</div>
-  <p class="tagline">
-    Professional customer information, services and support
-  </p>
+  <p class="tagline">Professional customer information, services and support</p>
 </header>
 
 <main class="wrap">
@@ -378,37 +353,65 @@ body{
   <a href="#signup">Sign Up</a>
   <a href="#sites">Our Sites</a>
   <a href="#support">Support</a>
+  <a href="#responsible">Responsible Play</a>
 </nav>
 
 <section class="card hero">
-  <h1>Welcome to Airexchange</h1>
-  <p>Connect with our team quickly and easily through WhatsApp.</p>
-
+  <h1>Building Trust.<br><span class="orange">Shaping the Future.</span></h1>
+  <p>Connect with the Airexchange team quickly and easily.</p>
   <div class="phone" id="phone">+971 50 123 4567</div>
+  <a class="btn wa" id="wa" href="#">WhatsApp Us</a>
+</section>
 
-  <a class="btn wa" id="wa" href="#">
-    WhatsApp Us
-  </a>
+<section class="banner-slider">
+
+  <div class="slide active">
+    <div class="slide-content">
+      <h2>Play <span>Responsibly.</span></h2>
+      <p>Stay in control, set limits and treat gaming as entertainment.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <h2>Entertainment With <span>Responsibility.</span></h2>
+      <p>Make informed choices and never gamble more than you can afford to lose.</p>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-content">
+      <h2>Connect With <span>Confidence.</span></h2>
+      <p>Get customer information and support directly from Airexchange.</p>
+    </div>
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
 </section>
 
 <section class="trust">
 
   <div class="trust-item">
-    <div class="trust-icon">⚡</div>
-    <b>Fast Response</b>
-    <span>Quick communication with our team</span>
+    <div class="icon">⚡</div>
+    <b>Fast Communication</b>
+    <span>Connect with our team quickly.</span>
   </div>
 
   <div class="trust-item">
-    <div class="trust-icon">🔒</div>
+    <div class="icon">🔒</div>
     <b>Customer Focused</b>
-    <span>Your information is handled carefully</span>
+    <span>We value responsible customer service.</span>
   </div>
 
   <div class="trust-item">
-    <div class="trust-icon">🌍</div>
-    <b>Global Access</b>
-    <span>Connect with Airexchange from anywhere</span>
+    <div class="icon">🌍</div>
+    <b>Accessible Support</b>
+    <span>Get assistance from wherever you are.</span>
   </div>
 
 </section>
@@ -418,37 +421,17 @@ body{
 <section id="signup" class="card signup">
 
   <div class="section-title">
-    <h2>Get in Touch</h2>
+    <h2>Get in <span class="orange">Touch</span></h2>
     <p>Leave your details and our team will contact you.</p>
   </div>
 
   <form onsubmit="signup(event)">
-
-    <input
-      id="name"
-      required
-      placeholder="Your full name"
-      autocomplete="name"
-    >
-
-    <input
-      id="customerPhone"
-      required
-      type="tel"
-      placeholder="Your phone number"
-      autocomplete="tel"
-    >
-
-    <button class="submit">
-      Submit My Details
-    </button>
-
+    <input id="name" required placeholder="Your full name" autocomplete="name">
+    <input id="customerPhone" required type="tel" placeholder="Your phone number" autocomplete="tel">
+    <button class="submit">Submit My Details</button>
   </form>
 
-  <p
-    id="success"
-    style="display:none;color:#15803d;font-weight:800;text-align:center"
-  >
+  <p id="success" style="display:none;color:#15803d;font-weight:800;text-align:center">
     ✓ Thank you. Your details have been submitted successfully.
   </p>
 
@@ -457,7 +440,7 @@ body{
 <section id="sites" class="card">
 
   <div class="section-title">
-    <h2>Our Sites</h2>
+    <h2>Our <span class="orange">Sites</span></h2>
     <p>Explore our websites and services.</p>
   </div>
 
@@ -468,10 +451,7 @@ body{
 <section id="support" class="card hero">
 
   <h2>Need Help?</h2>
-
-  <p>
-    Our support team is available to assist you.
-  </p>
+  <p>Our support team is available to assist you.</p>
 
   <a class="btn support" id="supportLink" href="#">
     WhatsApp Support
@@ -479,15 +459,43 @@ body{
 
 </section>
 
+<section id="responsible" class="card responsible">
+
+  <div class="section-title">
+    <h2>Play <span class="orange">Responsibly</span></h2>
+    <p>Your wellbeing comes first.</p>
+  </div>
+
+  <div class="rules">
+    <span class="rule">18+ Only</span>
+    <span class="rule">Play Responsibly</span>
+    <span class="rule">Set Your Limits</span>
+    <span class="rule">Know When To Stop</span>
+  </div>
+
+  <p class="legal">
+    Gambling involves risk. Never gamble more than you can afford to lose.
+    Gambling should be treated as entertainment, not as a way to make money.
+    If gambling is causing problems in your life, consider taking a break and
+    seeking appropriate support.
+  </p>
+
+  <p class="legal">
+    Terms &amp; Conditions apply. Please check the laws and regulations
+    applicable to your location before participating.
+  </p>
+
+</section>
+
 <div class="footer">
   © Airexchange.org — All rights reserved.
+  <br>
+  18+ | Play Responsibly | Terms &amp; Conditions
 </div>
 
 </main>
 
-<a class="float-wa" id="floatWa" href="#" aria-label="WhatsApp">
-  ☎
-</a>
+<a class="float-wa" id="floatWa" href="#" aria-label="WhatsApp">☎</a>
 
 <script>
 
@@ -500,19 +508,15 @@ let bs=JSON.parse(localStorage.getItem('ae_banners')||'[]')
 let sites=JSON.parse(localStorage.getItem('ae_sites')||'[]');
 
 const cleanPhone=phone.replace(/\D/g,'');
-
 const cleanSupport=support.replace(/\D/g,'');
 
 document.getElementById('phone').textContent=phone;
 
-document.getElementById('wa').href=
-  'https://wa.me/'+cleanPhone;
+document.getElementById('wa').href='https://wa.me/'+cleanPhone;
 
-document.getElementById('floatWa').href=
-  'https://wa.me/'+cleanPhone;
+document.getElementById('floatWa').href='https://wa.me/'+cleanPhone;
 
-document.getElementById('supportLink').href=
-  'https://wa.me/'+cleanSupport;
+document.getElementById('supportLink').href='https://wa.me/'+cleanSupport;
 
 document.getElementById('posters').innerHTML=
   bs.map(x=>`
@@ -532,28 +536,21 @@ document.getElementById('sitesList').innerHTML=
       </a>
     </div>
   `).join('')
-  ||
-  '<div class="empty">Our sites will appear here.</div>';
+  ||'<div class="empty">Our sites will appear here.</div>';
 
 async function signup(e){
 
   e.preventDefault();
 
   const form=e.target;
-
-  const name=
-    document.getElementById('name').value.trim();
-
-  const customerPhone=
-    document.getElementById('customerPhone').value.trim();
+  const name=document.getElementById('name').value.trim();
+  const customerPhone=document.getElementById('customerPhone').value.trim();
 
   try{
 
     const response=await fetch('/api/signup',{
       method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         name:name,
         phone:customerPhone
@@ -566,20 +563,16 @@ async function signup(e){
       throw new Error('Signup failed');
 
     form.style.display='none';
-
     document.getElementById('success').style.display='block';
 
   }catch(error){
 
-    alert(
-      'Unable to submit your details. Please try again.'
-    );
+    alert('Unable to submit your details. Please try again.');
 
   }
 }
 
 function esc(s){
-
   return String(s).replace(
     /[&<>"']/g,
     c=>({
@@ -590,8 +583,31 @@ function esc(s){
       "'":'&#039;'
     }[c])
   );
+}
+
+/* Animated banner */
+
+let currentSlide=0;
+
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+
+function showSlide(index){
+
+  slides.forEach(x=>x.classList.remove('active'));
+  dots.forEach(x=>x.classList.remove('active'));
+
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
 
 }
+
+setInterval(()=>{
+
+  currentSlide=(currentSlide+1)%slides.length;
+  showSlide(currentSlide);
+
+},5000);
 
 </script>
 
