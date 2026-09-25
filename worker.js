@@ -40,7 +40,34 @@ export default {
 
       return Response.json(result.results);
     }
+// Update customer signup status
+if (url.pathname === "/api/signups/status" && request.method === "POST") {
+  try {
+    const data = await request.json();
+    const id = Number(data.id);
+    const status = String(data.status || "").trim();
 
+    if (!id || !["New", "Contacted"].includes(status)) {
+      return Response.json(
+        { success: false, error: "Invalid ID or status." },
+        { status: 400 }
+      );
+    }
+
+    await env.DB.prepare(
+      "UPDATE signups SET status = ? WHERE id = ?"
+    )
+      .bind(status, id)
+      .run();
+
+    return Response.json({ success: true });
+  } catch (error) {
+    return Response.json(
+      { success: false, error: "Unable to update status." },
+      { status: 500 }
+    );
+  }
+}
     // Serve the existing website
     return env.ASSETS.fetch(request);
   }
