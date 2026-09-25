@@ -1,62 +1,24 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Airexchange.org — Admin</title>
-<style>
-:root{--nav:#0d2340;--blue:#1677e8;--cyan:#06b6d4;--purple:#7c3aed;--green:#16a34a;--orange:#f59e0b;--red:#dc2626;--bg:#f3f6fb;--card:#fff;--line:#e3e9f2;--text:#162033;--muted:#718096}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Arial;color:var(--text)}header{height:70px;background:linear-gradient(120deg,var(--nav),#124c7a,#087f8c);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 28px}.logo{font-size:21px;font-weight:900}.logo span{color:#67e8f9}.online{font-size:13px}.shell{display:grid;grid-template-columns:245px 1fr;min-height:calc(100vh - 70px)}aside{background:#fff;border-right:1px solid var(--line);padding:18px 13px}nav button{width:100%;border:0;background:none;text-align:left;padding:13px 14px;border-radius:11px;margin:3px 0;color:#607087;font-weight:700;cursor:pointer}nav button.active,nav button:hover{background:#eaf4ff;color:var(--blue)}main{max-width:1400px;width:100%;padding:28px;margin:auto}.sec{display:none}.sec.active{display:block}h1{margin:0;font-size:29px}.sub{color:var(--muted);margin:6px 0 24px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{padding:20px;border-radius:16px;color:white;min-height:115px;box-shadow:0 8px 22px #10233f12}.stat:nth-child(1){background:linear-gradient(135deg,#1677e8,#38bdf8)}.stat:nth-child(2){background:linear-gradient(135deg,#7c3aed,#a855f7)}.stat:nth-child(3){background:linear-gradient(135deg,#059669,#34d399)}.stat:nth-child(4){background:linear-gradient(135deg,#ea580c,#fbbf24)}.stat small{opacity:.82}.stat strong{display:block;font-size:28px;margin-top:10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 5px 18px #10233f08;margin-bottom:18px}.card h2,.card h3{margin:0 0 13px}input,textarea,select{width:100%;padding:12px;border:1px solid #d6dfeb;border-radius:10px;margin:6px 0 14px;font:inherit}textarea{min-height:90px}.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:800;cursor:pointer}.primary{background:linear-gradient(135deg,#1677e8,#06a7c5);color:#fff}.purple{background:#7c3aed;color:#fff}.soft{background:#edf3f8;color:#34445a}.danger{background:#fee2e2;color:#b91c1c}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:13px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}.table th{color:#64748b}.tag{padding:5px 9px;border-radius:999px;background:#dcfce7;color:#166534;font-size:12px;font-weight:800}.banner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.banner{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.banner img{width:100%;height:170px;object-fit:cover;background:#dbe4ee}.bannerbody{padding:13px}.links{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.linkrow{border:1px solid var(--line);border-radius:12px;padding:15px;display:flex;justify-content:space-between;gap:10px;align-items:center}.url{font-size:12px;color:var(--muted);word-break:break-all;margin-top:5px}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.banner-grid,.links,.grid{grid-template-columns:1fr}}@media(max-width:650px){.shell{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line)}main{padding:17px}.stats{grid-template-columns:1fr}}
-</style></head>
-<body><header><div class="logo">AIR<span>EXCHANGE</span>.org</div><div class="online">● Dashboard</div></header>
-<div class="shell"><aside><nav>
-<button class="active" onclick="tab('dash',this)">🏠 Dashboard</button>
-<button onclick="tab('leads',this)">👥 Customer Signups</button>
-<button onclick="tab('wa',this)">📱 WhatsApp</button>
-<button onclick="tab('banners',this)">🖼️ Banners & Posters</button>
-<button onclick="tab('sites',this)">🌐 Our Sites</button>
-<button onclick="tab('support',this)">💬 Support</button>
-</nav></aside><main>
-<section id="dash" class="sec active"><h1>Dashboard</h1><div class="sub">Manage Airexchange customer communication.</div>
-<div class="stats"><div class="stat"><small>Customer signups</small><strong id="count">0</strong></div><div class="stat"><small>Active posters</small><strong id="active">0</strong></div><div class="stat"><small>Support WhatsApp</small><strong id="supportStat">—</strong></div><div class="stat"><small>Customer page</small><strong>LIVE</strong></div></div>
-<div class="grid"><div class="card"><h3>Today's WhatsApp</h3><div id="dashPhone" style="font-size:27px;font-weight:900;margin:12px 0">+971 50 123 4567</div><button class="btn primary" onclick="tab('wa',document.querySelectorAll('nav button')[2])">Update number</button></div>
-<div class="card"><h3>Customer page</h3><p class="sub">Send this link to customers.</p><b>https://airexchange.org/</b><br><br><button class="btn soft" onclick="copy('https://airexchange.org/')">Copy link</button></div></div></section>
-
-<section id="leads" class="sec"><h1>Customer Signups</h1><div class="sub">Names and phone numbers submitted by customers.</div>
-<div class="card"><button class="btn danger" onclick="clearLeads()">Delete all signups</button><div class="tablewrap" style="margin-top:15px"><table class="table"><thead><tr><th>Name</th><th>Phone</th><th>Date</th><th>Status</th></tr></thead><tbody id="leads"></tbody></table></div></div></section>
-
-<section id="wa" class="sec"><h1>WhatsApp</h1><div class="sub">Set the number customers should contact for general enquiries.</div>
-<div class="card"><label><b>WhatsApp number</b></label><input id="phone" value="+971 50 123 4567"><label><b>Support message</b></label><textarea id="supportMsg">Hello, I need support from Airexchange.</textarea><button class="btn primary" onclick="savePhone()">Save WhatsApp</button></div></section>
-
-<section id="banners" class="sec"><h1>Banners & Posters</h1><div class="sub">Upload images directly from your device and publish them to customers.</div>
-<div class="card"><input id="img" type="file" accept="image/*"><input id="bt" placeholder="Poster title"><button class="btn purple" onclick="addBanner()">Upload & publish</button><p class="sub">For the production version, images should be stored in cloud storage rather than browser storage.</p></div><div class="banner-grid" id="bannerGrid"></div></section>
-
-<section id="sites" class="sec"><h1>Our Sites</h1><div class="sub">Add the websites customers should be able to access.</div>
-<div class="card"><input id="siteName" placeholder="Site name"><input id="siteUrl" placeholder="https://example.com"><button class="btn primary" onclick="addSite()">Add site</button></div><div class="links" id="siteList"></div></section>
-
-<section id="support" class="sec"><h1>Contact Support</h1><div class="sub">Set a separate WhatsApp number for customer support.</div>
-<div class="card"><label><b>Support WhatsApp number</b></label><input id="supportPhone" placeholder="+971 50 000 0000"><button class="btn primary" onclick="saveSupport()">Save support number</button></div></section>
-</main></div>
+<title>Airexchange.org</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial;background:#f4f7fb;color:#172033}.top{background:linear-gradient(120deg,#0d2340,#124c7a,#087f8c);color:#fff;padding:30px 18px;text-align:center}.logo{font-size:30px;font-weight:900}.logo span{color:#67e8f9}.wrap{max-width:980px;margin:auto;padding:22px 16px}.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.nav a{padding:10px 16px;border-radius:999px;text-decoration:none;background:#fff;color:#34445a;font-weight:800;border:1px solid #e1e8f0}.card{background:#fff;border-radius:18px;box-shadow:0 8px 30px #10233f12;margin-bottom:20px;padding:24px}.hero{text-align:center}.hero h2{margin:0 0 6px}.phone{font-size:27px;color:#1677e8;font-weight:900;margin:13px}.btn{display:inline-block;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:800}.wa{background:#16a34a;color:#fff}.support{background:#7c3aed;color:#fff}.poster{overflow:hidden;padding:0}.poster img{width:100%;display:block;max-height:620px;object-fit:cover}.poster div{padding:15px 20px;font-weight:800}.signup h2{margin-top:0}.signup input{width:100%;padding:13px;margin:7px 0 12px;border:1px solid #d7e0eb;border-radius:10px;font:inherit}.submit{border:0;background:#1677e8;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;cursor:pointer}.sites{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.site{border:1px solid #e2e8f0;padding:15px;border-radius:12px}.site a{color:#1677e8;font-weight:800;text-decoration:none}.empty{color:#718096;text-align:center}@media(max-width:650px){.sites{grid-template-columns:1fr}}
+</style></head><body>
+<header class="top"><div class="logo">AIR<span>EXCHANGE</span>.org</div><p>Customer information & services</p></header>
+<main class="wrap"><nav class="nav"><a href="#signup">Sign Up</a><a href="#sites">Our Sites</a><a href="#support">Contact Support</a></nav>
+<section class="card hero"><h2>Need assistance?</h2><p>Contact Airexchange on WhatsApp</p><div class="phone" id="phone">+971 50 123 4567</div><a class="btn wa" id="wa" href="#">WhatsApp Us</a></section>
+<section id="posters"></section>
+<section id="signup" class="card signup"><h2>Sign Up</h2><p>Leave your details and our team will contact you.</p><form onsubmit="signup(event)"><input id="name" required placeholder="Your full name"><input id="customerPhone" required type="tel" placeholder="Your phone number"><button class="submit">Submit details</button></form><p id="success" style="display:none;color:#15803d;font-weight:700">Thank you. Your details have been submitted.</p></section>
+<section id="sites" class="card"><h2>Our Sites</h2><div class="sites" id="sitesList"></div></section>
+<section id="support" class="card hero"><h2>Contact Support</h2><p>For help or technical support, contact our support team separately.</p><a class="btn support" id="supportLink" href="#">WhatsApp Support</a></section>
+</main>
 <script>
-let phone=localStorage.getItem('ae_phone')||'+971 50 123 4567';
-let support=localStorage.getItem('ae_support')||'+971 50 123 4567';
-let leads=JSON.parse(localStorage.getItem('ae_leads')||'[]');
-let banners=JSON.parse(localStorage.getItem('ae_banners')||'[]');
+let phone=localStorage.getItem('ae_phone')||'+971 50 123 4567',support=localStorage.getItem('ae_support')||'+971 50 123 4567';
+let bs=JSON.parse(localStorage.getItem('ae_banners')||'[]').filter(x=>x.active);
 let sites=JSON.parse(localStorage.getItem('ae_sites')||'[]');
-function tab(id,b){document.querySelectorAll('.sec').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
-function copy(x){navigator.clipboard?.writeText(x);alert('Copied: '+x)}
-function savePhone(){phone=document.getElementById('phone').value.trim();localStorage.setItem('ae_phone',phone);render();alert('WhatsApp number saved.')}
-function saveSupport(){support=document.getElementById('supportPhone').value.trim();localStorage.setItem('ae_support',support);render();alert('Support number saved.')}
-function addBanner(){let f=document.getElementById('img').files[0],t=document.getElementById('bt').value.trim()||'Airexchange Poster';if(!f)return alert('Select an image.');let r=new FileReader();r.onload=()=>{banners.unshift({title:t,url:r.result,active:true});localStorage.setItem('ae_banners',JSON.stringify(banners));document.getElementById('img').value='';document.getElementById('bt').value='';render()};r.readAsDataURL(f)}
-function toggleBanner(i){banners[i].active=!banners[i].active;localStorage.setItem('ae_banners',JSON.stringify(banners));render()}
-function deleteBanner(i){banners.splice(i,1);localStorage.setItem('ae_banners',JSON.stringify(banners));render()}
-function addSite(){let n=document.getElementById('siteName').value.trim(),u=document.getElementById('siteUrl').value.trim();if(!n||!u)return alert('Enter site name and URL.');sites.push({n,u});localStorage.setItem('ae_sites',JSON.stringify(sites));document.getElementById('siteName').value='';document.getElementById('siteUrl').value='';render()}
-function deleteSite(i){sites.splice(i,1);localStorage.setItem('ae_sites',JSON.stringify(sites));render()}
-function clearLeads(){if(confirm('Delete all customer signups?')){leads=[];localStorage.setItem('ae_leads','[]');render()}}
-function render(){
-document.getElementById('count').textContent=leads.length;document.getElementById('active').textContent=banners.filter(x=>x.active).length;document.getElementById('supportStat').textContent=support;document.getElementById('dashPhone').textContent=phone;document.getElementById('phone').value=phone;document.getElementById('supportPhone').value=support;
-document.getElementById('leads').innerHTML=leads.length?leads.map(x=>`<tr><td><b>${esc(x.name)}</b></td><td>${esc(x.phone)}</td><td>${esc(x.date)}</td><td><span class="tag">New</span></td></tr>`).join(''):'<tr><td colspan="4" style="color:#718096">No signups yet.</td></tr>';
-document.getElementById('bannerGrid').innerHTML=banners.map((x,i)=>`<div class="banner"><img src="${x.url}"><div class="bannerbody"><b>${esc(x.title)}</b><p class="sub">${x.active?'Visible':'Hidden'}</p><button class="btn soft" onclick="toggleBanner(${i})">${x.active?'Hide':'Publish'}</button> <button class="btn danger" onclick="deleteBanner(${i})">Delete</button></div></div>`).join('');
-document.getElementById('siteList').innerHTML=sites.map((x,i)=>`<div class="linkrow"><div><b>${esc(x.n)}</b><div class="url">${esc(x.u)}</div></div><div><a class="btn primary" href="${esc(x.u)}" target="_blank">Open</a> <button class="btn danger" onclick="deleteSite(${i})">×</button></div></div>`).join('')||'<div class="card">No sites added yet.</div>';
-}
+document.getElementById('phone').textContent=phone;document.getElementById('wa').href='https://wa.me/'+phone.replace(/\D/g,'');
+document.getElementById('supportLink').href='https://wa.me/'+support.replace(/\D/g,'');
+document.getElementById('posters').innerHTML=bs.map(x=>`<article class="card poster"><img src="${x.url}"><div>${esc(x.title)}</div></article>`).join('')||'';
+document.getElementById('sitesList').innerHTML=sites.map(x=>`<div class="site"><b>${esc(x.n)}</b><br><a href="${esc(x.u)}" target="_blank">Visit site →</a></div>`).join('')||'<div class="empty">Our sites will appear here.</div>';
+function signup(e){e.preventDefault();let leads=JSON.parse(localStorage.getItem('ae_leads')||'[]');leads.unshift({name:document.getElementById('name').value.trim(),phone:document.getElementById('customerPhone').value.trim(),date:new Date().toLocaleString()});localStorage.setItem('ae_leads',JSON.stringify(leads));e.target.style.display='none';document.getElementById('success').style.display='block'}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-render();
 </script></body></html>
