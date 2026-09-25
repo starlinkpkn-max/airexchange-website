@@ -50,8 +50,22 @@ function toggleBanner(i){banners[i].active=!banners[i].active;localStorage.setIt
 function deleteBanner(i){banners.splice(i,1);localStorage.setItem('ae_banners',JSON.stringify(banners));render()}
 function addSite(){let n=document.getElementById('siteName').value.trim(),u=document.getElementById('siteUrl').value.trim();if(!n||!u)return alert('Enter site name and URL.');sites.push({n,u});localStorage.setItem('ae_sites',JSON.stringify(sites));document.getElementById('siteName').value='';document.getElementById('siteUrl').value='';render()}
 function deleteSite(i){sites.splice(i,1);localStorage.setItem('ae_sites',JSON.stringify(sites));render()}
-function clearLeads(){
-  alert('Customer signups are now stored securely in the database.');
+async function clearLeads(){
+  if(!confirm('Delete all customer signups? This cannot be undone.')) return;
+
+  const response = await fetch('/api/signups/delete-all',{
+    method:'POST'
+  });
+
+  const result = await response.json();
+
+  if(!result.success){
+    alert('Unable to delete customer signups.');
+    return;
+  }
+
+  alert('All customer signups have been deleted.');
+  await render();
 }
 
 async function render(){
