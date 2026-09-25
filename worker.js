@@ -35,7 +35,7 @@ export default {
     // Return customer signups for the admin dashboard
     if (url.pathname === "/api/signups" && request.method === "GET") {
       const result = await env.DB.prepare(
-        "SELECT id, name, phone, created_at FROM signups ORDER BY created_at DESC"
+        "SELECT id, name, phone, created_at, status FROM signups ORDER BY created_at DESC"
       ).all();
 
       return Response.json(result.results);
