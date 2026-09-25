@@ -1,24 +1,599 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Airexchange.org</title><style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial;background:#f4f7fb;color:#172033}.top{background:linear-gradient(120deg,#0d2340,#124c7a,#087f8c);color:#fff;padding:30px 18px;text-align:center}.logo{font-size:30px;font-weight:900}.logo span{color:#67e8f9}.wrap{max-width:980px;margin:auto;padding:22px 16px}.nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}.nav a{padding:10px 16px;border-radius:999px;text-decoration:none;background:#fff;color:#34445a;font-weight:800;border:1px solid #e1e8f0}.card{background:#fff;border-radius:18px;box-shadow:0 8px 30px #10233f12;margin-bottom:20px;padding:24px}.hero{text-align:center}.hero h2{margin:0 0 6px}.phone{font-size:27px;color:#1677e8;font-weight:900;margin:13px}.btn{display:inline-block;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:800}.wa{background:#16a34a;color:#fff}.support{background:#7c3aed;color:#fff}.poster{overflow:hidden;padding:0}.poster img{width:100%;display:block;max-height:620px;object-fit:cover}.poster div{padding:15px 20px;font-weight:800}.signup h2{margin-top:0}.signup input{width:100%;padding:13px;margin:7px 0 12px;border:1px solid #d7e0eb;border-radius:10px;font:inherit}.submit{border:0;background:#1677e8;color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;cursor:pointer}.sites{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.site{border:1px solid #e2e8f0;padding:15px;border-radius:12px}.site a{color:#1677e8;font-weight:800;text-decoration:none}.empty{color:#718096;text-align:center}@media(max-width:650px){.sites{grid-template-columns:1fr}}
-</style></head><body>
-<header class="top"><div class="logo">AIR<span>EXCHANGE</span>.org</div><p>Customer information & services</p></header>
-<main class="wrap"><nav class="nav"><a href="#signup">Sign Up</a><a href="#sites">Our Sites</a><a href="#support">Contact Support</a></nav>
-<section class="card hero"><h2>Need assistance?</h2><p>Contact Airexchange on WhatsApp</p><div class="phone" id="phone">+971 50 123 4567</div><a class="btn wa" id="wa" href="#">WhatsApp Us</a></section>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Airexchange.org | Customer Services</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:#f5f8fc;
+  color:#172033;
+}
+
+.top{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%,#1cc8d044,transparent 28%),
+    radial-gradient(circle at 10% 90%,#38bdf844,transparent 30%),
+    linear-gradient(135deg,#071b35,#0b355b 55%,#087f8c);
+  color:#fff;
+  padding:28px 18px 75px;
+  text-align:center;
+}
+
+.top:after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-55px;
+  height:110px;
+  background:#f5f8fc;
+  border-radius:50% 50% 0 0;
+}
+
+.logo{
+  position:relative;
+  z-index:2;
+  font-size:34px;
+  font-weight:950;
+  letter-spacing:-1px;
+}
+
+.logo span{color:#67e8f9}
+
+.tagline{
+  position:relative;
+  z-index:2;
+  margin:10px auto 0;
+  max-width:650px;
+  font-size:16px;
+  color:#d8f5fa;
+}
+
+.wrap{
+  position:relative;
+  z-index:3;
+  max-width:1080px;
+  margin:-35px auto 0;
+  padding:0 18px 50px;
+}
+
+.nav{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+.nav a{
+  padding:11px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  background:#fff;
+  color:#24364d;
+  font-weight:800;
+  border:1px solid #e1e8f0;
+  box-shadow:0 5px 18px #10233f12;
+  transition:.2s;
+}
+
+.nav a:hover{
+  transform:translateY(-2px);
+  border-color:#8dddea;
+}
+
+.card{
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 12px 35px #10233f12;
+  margin-bottom:22px;
+  padding:28px;
+  border:1px solid #e8eef5;
+}
+
+.hero{
+  text-align:center;
+  padding:38px 25px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:38px;
+  line-height:1.1;
+  letter-spacing:-1.2px;
+}
+
+.hero h2{
+  margin:0 0 8px;
+  font-size:27px;
+}
+
+.hero p{
+  color:#64748b;
+  font-size:16px;
+}
+
+.phone{
+  font-size:28px;
+  color:#0877c9;
+  font-weight:950;
+  margin:18px 0;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:850;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.wa{
+  background:#16a34a;
+  color:#fff;
+  box-shadow:0 8px 20px #16a34a30;
+}
+
+.support{
+  background:#6d28d9;
+  color:#fff;
+  box-shadow:0 8px 20px #6d28d930;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.section-title h2{
+  margin:0 0 7px;
+  font-size:28px;
+}
+
+.section-title p{
+  margin:0;
+  color:#718096;
+}
+
+.poster{
+  overflow:hidden;
+  padding:0;
+}
+
+.poster img{
+  width:100%;
+  display:block;
+  max-height:620px;
+  object-fit:cover;
+}
+
+.poster div{
+  padding:16px 20px;
+  font-weight:850;
+  font-size:16px;
+}
+
+.signup{
+  background:
+    linear-gradient(135deg,#ffffff,#f1fbff);
+}
+
+.signup h2{
+  margin-top:0;
+  font-size:28px;
+}
+
+.signup p{
+  color:#64748b;
+}
+
+.signup input{
+  width:100%;
+  padding:15px;
+  margin:7px 0 12px;
+  border:1px solid #d7e0eb;
+  border-radius:12px;
+  font:inherit;
+  outline:none;
+  transition:.2s;
+}
+
+.signup input:focus{
+  border-color:#159bd0;
+  box-shadow:0 0 0 4px #159bd015;
+}
+
+.submit{
+  width:100%;
+  border:0;
+  background:linear-gradient(135deg,#0877c9,#0b9ca8);
+  color:#fff;
+  padding:15px 18px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 8px 20px #0877c930;
+}
+
+.submit:hover{
+  transform:translateY(-1px);
+}
+
+.sites{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.site{
+  border:1px solid #e2e8f0;
+  padding:20px;
+  border-radius:16px;
+  background:#fbfdff;
+  transition:.2s;
+}
+
+.site:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px #10233f10;
+}
+
+.site b{
+  font-size:17px;
+}
+
+.site a{
+  display:inline-block;
+  margin-top:10px;
+  color:#0877c9;
+  font-weight:850;
+  text-decoration:none;
+}
+
+.empty{
+  color:#718096;
+  text-align:center;
+  grid-column:1/-1;
+  padding:15px;
+}
+
+.trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-bottom:22px;
+}
+
+.trust-item{
+  background:#fff;
+  border:1px solid #e8eef5;
+  border-radius:18px;
+  padding:22px 15px;
+  text-align:center;
+  box-shadow:0 8px 25px #10233f0d;
+}
+
+.trust-icon{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.trust-item b{
+  display:block;
+  margin-bottom:5px;
+}
+
+.trust-item span{
+  color:#718096;
+  font-size:13px;
+}
+
+.footer{
+  text-align:center;
+  color:#718096;
+  font-size:13px;
+  padding:10px 0 25px;
+}
+
+.float-wa{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:20;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#16a34a;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:27px;
+  box-shadow:0 10px 25px #16a34a55;
+}
+
+@media(max-width:700px){
+  .logo{font-size:29px}
+  .hero h1{font-size:31px}
+  .hero h2{font-size:24px}
+  .phone{font-size:24px}
+  .card{padding:22px}
+  .sites{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+}
+
+@media(max-width:430px){
+  .nav a{
+    width:100%;
+    text-align:center;
+  }
+
+  .top{
+    padding-bottom:65px;
+  }
+
+  .wrap{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .float-wa{
+    right:15px;
+    bottom:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="logo">AIR<span>EXCHANGE</span>.org</div>
+  <p class="tagline">
+    Professional customer information, services and support
+  </p>
+</header>
+
+<main class="wrap">
+
+<nav class="nav">
+  <a href="#signup">Sign Up</a>
+  <a href="#sites">Our Sites</a>
+  <a href="#support">Support</a>
+</nav>
+
+<section class="card hero">
+  <h1>Welcome to Airexchange</h1>
+  <p>Connect with our team quickly and easily through WhatsApp.</p>
+
+  <div class="phone" id="phone">+971 50 123 4567</div>
+
+  <a class="btn wa" id="wa" href="#">
+    WhatsApp Us
+  </a>
+</section>
+
+<section class="trust">
+
+  <div class="trust-item">
+    <div class="trust-icon">⚡</div>
+    <b>Fast Response</b>
+    <span>Quick communication with our team</span>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">🔒</div>
+    <b>Customer Focused</b>
+    <span>Your information is handled carefully</span>
+  </div>
+
+  <div class="trust-item">
+    <div class="trust-icon">🌍</div>
+    <b>Global Access</b>
+    <span>Connect with Airexchange from anywhere</span>
+  </div>
+
+</section>
+
 <section id="posters"></section>
-<section id="signup" class="card signup"><h2>Sign Up</h2><p>Leave your details and our team will contact you.</p><form onsubmit="signup(event)"><input id="name" required placeholder="Your full name"><input id="customerPhone" required type="tel" placeholder="Your phone number"><button class="submit">Submit details</button></form><p id="success" style="display:none;color:#15803d;font-weight:700">Thank you. Your details have been submitted.</p></section>
-<section id="sites" class="card"><h2>Our Sites</h2><div class="sites" id="sitesList"></div></section>
-<section id="support" class="card hero"><h2>Contact Support</h2><p>For help or technical support, contact our support team separately.</p><a class="btn support" id="supportLink" href="#">WhatsApp Support</a></section>
+
+<section id="signup" class="card signup">
+
+  <div class="section-title">
+    <h2>Get in Touch</h2>
+    <p>Leave your details and our team will contact you.</p>
+  </div>
+
+  <form onsubmit="signup(event)">
+
+    <input
+      id="name"
+      required
+      placeholder="Your full name"
+      autocomplete="name"
+    >
+
+    <input
+      id="customerPhone"
+      required
+      type="tel"
+      placeholder="Your phone number"
+      autocomplete="tel"
+    >
+
+    <button class="submit">
+      Submit My Details
+    </button>
+
+  </form>
+
+  <p
+    id="success"
+    style="display:none;color:#15803d;font-weight:800;text-align:center"
+  >
+    ✓ Thank you. Your details have been submitted successfully.
+  </p>
+
+</section>
+
+<section id="sites" class="card">
+
+  <div class="section-title">
+    <h2>Our Sites</h2>
+    <p>Explore our websites and services.</p>
+  </div>
+
+  <div class="sites" id="sitesList"></div>
+
+</section>
+
+<section id="support" class="card hero">
+
+  <h2>Need Help?</h2>
+
+  <p>
+    Our support team is available to assist you.
+  </p>
+
+  <a class="btn support" id="supportLink" href="#">
+    WhatsApp Support
+  </a>
+
+</section>
+
+<div class="footer">
+  © Airexchange.org — All rights reserved.
+</div>
+
 </main>
+
+<a class="float-wa" id="floatWa" href="#" aria-label="WhatsApp">
+  ☎
+</a>
+
 <script>
-let phone=localStorage.getItem('ae_phone')||'+971 50 123 4567',support=localStorage.getItem('ae_support')||'+971 50 123 4567';
-let bs=JSON.parse(localStorage.getItem('ae_banners')||'[]').filter(x=>x.active);
+
+let phone=localStorage.getItem('ae_phone')||'+971 50 123 4567',
+support=localStorage.getItem('ae_support')||'+971 50 123 4567';
+
+let bs=JSON.parse(localStorage.getItem('ae_banners')||'[]')
+  .filter(x=>x.active);
+
 let sites=JSON.parse(localStorage.getItem('ae_sites')||'[]');
-document.getElementById('phone').textContent=phone;document.getElementById('wa').href='https://wa.me/'+phone.replace(/\D/g,'');
-document.getElementById('supportLink').href='https://wa.me/'+support.replace(/\D/g,'');
-document.getElementById('posters').innerHTML=bs.map(x=>`<article class="card poster"><img src="${x.url}"><div>${esc(x.title)}</div></article>`).join('')||'';
-document.getElementById('sitesList').innerHTML=sites.map(x=>`<div class="site"><b>${esc(x.n)}</b><br><a href="${esc(x.u)}" target="_blank">Visit site →</a></div>`).join('')||'<div class="empty">Our sites will appear here.</div>';
-async function signup(e){e.preventDefault();const form=e.target;const name=document.getElementById('name').value.trim();const phone=document.getElementById('customerPhone').value.trim();try{const response=await fetch('/api/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,phone})});const result=await response.json();if(!response.ok||!result.success)throw new Error('Signup failed');form.style.display='none';document.getElementById('success').style.display='block'}catch(error){alert('Unable to submit your details. Please try again.');}}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]))}
-</script></body></html>
+
+const cleanPhone=phone.replace(/\D/g,'');
+
+const cleanSupport=support.replace(/\D/g,'');
+
+document.getElementById('phone').textContent=phone;
+
+document.getElementById('wa').href=
+  'https://wa.me/'+cleanPhone;
+
+document.getElementById('floatWa').href=
+  'https://wa.me/'+cleanPhone;
+
+document.getElementById('supportLink').href=
+  'https://wa.me/'+cleanSupport;
+
+document.getElementById('posters').innerHTML=
+  bs.map(x=>`
+    <article class="card poster">
+      <img src="${x.url}" alt="${esc(x.title)}">
+      <div>${esc(x.title)}</div>
+    </article>
+  `).join('')||'';
+
+document.getElementById('sitesList').innerHTML=
+  sites.map(x=>`
+    <div class="site">
+      <b>${esc(x.n)}</b>
+      <br>
+      <a href="${esc(x.u)}" target="_blank" rel="noopener">
+        Visit site →
+      </a>
+    </div>
+  `).join('')
+  ||
+  '<div class="empty">Our sites will appear here.</div>';
+
+async function signup(e){
+
+  e.preventDefault();
+
+  const form=e.target;
+
+  const name=
+    document.getElementById('name').value.trim();
+
+  const customerPhone=
+    document.getElementById('customerPhone').value.trim();
+
+  try{
+
+    const response=await fetch('/api/signup',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        name:name,
+        phone:customerPhone
+      })
+    });
+
+    const result=await response.json();
+
+    if(!response.ok||!result.success)
+      throw new Error('Signup failed');
+
+    form.style.display='none';
+
+    document.getElementById('success').style.display='block';
+
+  }catch(error){
+
+    alert(
+      'Unable to submit your details. Please try again.'
+    );
+
+  }
+}
+
+function esc(s){
+
+  return String(s).replace(
+    /[&<>"']/g,
+    c=>({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#039;'
+    }[c])
+  );
+
+}
+
+</script>
+
+</body>
+</html>
